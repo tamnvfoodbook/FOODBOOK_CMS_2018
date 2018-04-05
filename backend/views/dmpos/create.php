@@ -1,0 +1,27 @@
+<?php
+
+use yii\helpers\Html;
+
+
+/* @var $this yii\web\View */
+/* @var $model backend\models\Dmpos */
+
+$this->title = 'Create Dmpos';
+$this->params['breadcrumbs'][] = ['label' => 'Dmpos', 'url' => ['index']];
+$this->params['breadcrumbs'][] = $this->title;
+?>
+<div class="dmpos-create">
+
+    <h1><?= Html::encode($this->title) ?></h1>
+
+    <?= $this->render('_form', [
+        'model' => $model,
+        'posparents' => $posparents,
+        'city' => $city,
+        'district' => $district,
+        'posmaster' => $posmaster,
+        'allDeliveryMap' => $allDeliveryMap,
+
+    ]) ?>
+
+</div>

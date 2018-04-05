@@ -1,0 +1,229 @@
+
+.navbar-inverse{
+    background-color: #00326c;
+    border-color: #aaa7a8;
+    box-shadow:0 0px 4px #000;
+    -moz-box-shadow:0 0px 4px #000;
+    -webkit-box-shadow:0 0px 4px #000;
+    height: 81px;
+}
+
+.navbar-brand{
+    padding-top: 10px;
+}
+
+.img-row-1{
+    background-image: url(../images/fu5.png);
+    background-repeat: no-repeat;
+
+}
+
+.row1{
+    /*background-color: #005983;*/
+    background-image: url("../images/backgroundFullHDpng.png");
+    /*background: url(../images/background.png) no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;*/
+
+}
+
+.download-icon{
+    margin-top: 5%;
+}
+
+.img-amthuc{
+    left: 0;
+    position: relative;
+    top: -19px;
+    max-width:100%;
+}
+
+.fb-img{
+    max-width: 100%;
+}
+
+@font-face {
+    font-family: 'HelveticaNeueCondensedBlack';
+    src: url('../fonts/HelveticaNeueCondensedBlack.eot');
+    src: url('../fonts/HelveticaNeueCondensedBlack.eot') format('embedded-opentype'),
+    url('../fonts/HelveticaNeueCondensedBlack.woff2') format('woff2'),
+    url('../fonts/HelveticaNeueCondensedBlack.woff') format('woff'),
+    url('../fonts/HelveticaNeueCondensedBlack.ttf') format('truetype'),
+    url('../fonts/HelveticaNeueCondensedBlack.svg#HelveticaNeueCondensedBlack') format('svg');
+}
+
+@font-face {
+    font-family: 'RobotoBold';
+    src: url('../fonts/RobotoBold.eot');
+    src: url('../fonts/RobotoBold.eot') format('embedded-opentype'),
+    url('../fonts/RobotoBold.woff2') format('woff2'),
+    url('../fonts/RobotoBold.woff') format('woff'),
+    url('../fonts/RobotoBold.ttf') format('truetype'),
+    url('../fonts/RobotoBold.svg#RobotoBold') format('svg');
+}
+
+
+@font-face {
+    font-family: 'helveticaneuelight';
+    src: url('../fonts/helveticaneuelight.eot');
+    src: url('../fonts/helveticaneuelight.eot') format('embedded-opentype'),
+    url('../fonts/helveticaneuelight.woff2') format('woff2'),
+    url('../fonts/helveticaneuelight.woff') format('woff'),
+    url('../fonts/helveticaneuelight.ttf') format('truetype'),
+    url('../fonts/helveticaneuelight.svg#helveticaneuelight') format('svg');
+}
+
+
+
+.title-foodbook{
+    padding-top:17%;
+    font-family: HelveticaNeueCondensedBlack;
+    color: #00326c;
+    font-size: 350%;
+}
+.title-am-thuc{
+    color: #b90e52;
+    font-family: RobotoBold;
+    padding-bottom:0;
+    margin: 0;
+    font-size: larger;
+    /*font-weight: 700;*/
+}
+
+.download-blog{
+    margin-top: 2%;
+    width: 205px;
+}
+
+/*.download-btn{
+    width: 133px;
+    height: 46px;
+    font-size: 21px;
+    margin: 0 auto;
+}*/
+
+.version-btn{
+    width: 150px;
+    height: 40px;
+    background-color: #b90e52;
+    color: #ffffff;
+    font-size: larger;
+}
+
+.single-img-1{
+    margin-top: 40%;
+    margin-left: 0;
+}
+
+
+/*Row 2*/
+
+.title-product{
+    margin: 8% auto;
+    text-align: center;
+    color: #0a356a;
+    font-size: 60px;
+    font-weight: 500;
+}
+.inlineimg{
+    vertical-align: bottom;
+}
+
+.row3{
+    margin-bottom: 6%;
+}
+
+.rơw4-right{
+    padding-top: 16%;
+
+}
+.text-right-row4{
+    margin-left: 2%;
+    text-align: justify;
+    font-family: helveticaneuelight;
+    font-size: large;
+    line-height:1.6em;
+}
+
+/*Row 5*/
+
+
+p span{
+    color: #b90e52;
+    font-family: helveticaneuelight;
+    font-size:30px;
+}
+
+h2 span{
+    font-family: helveticaneuelight;
+    color: #b90e52;
+    font-size: 150%;
+}
+
+.view-map-img{
+    width: 42%;
+    margin: 10% auto;
+}
+
+/* Row 7*/
+.image-5{
+    padding-top: 19%;
+}
+
+/*Row 8*/
+.image-hop-tac{
+    padding-bottom: 6%;
+}
+
+.title-footer{
+
+}
+
+/* Footer*/
+.background-footer{
+    background-image: url("../images/background-footer.png");
+}
+
+.tite-footer{
+    margin-top: 4%;
+    color: #ffffff;
+    font-family: "Helvetica Neue";
+    text-align: center;
+}
+.footer-body{
+    font-family: helveticaneuelight;
+    color: #ffffff;
+    text-align: center;
+}
+
+
+.navbar-inverse .navbar-nav > .active > a, .navbar-inverse .navbar-nav > .active > a:hover, .navbar-inverse .navbar-nav > .active > a:focus {
+    background-color: #621baa;
+    color: #fff;
+}
+
+/* Version 2*/
+
+ul {
+    list-style-image: url(../images/tich_ic.png);
+    font-family: helveticaneuelight;
+    color: #fff;
+    line-height: 1.8em;
+}
+
+.right-img-1{
+    position: absolute;
+    top: 15%;
+    right: 0;
+    border: 3px solid #8AC007;
+}
+.right-img-1> image{
+    max-width: 100%;
+}
+
+
+.single-img{
+    margin-top: 19%;
+}

@@ -1,0 +1,290 @@
+.scMain{
+    width: 100%;
+}
+
+#shortForm{
+    margin-top: -16px !important;
+}
+
+
+.scTxtSearch{
+    width: 200px;
+    background-color: #fff;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+}
+
+.controls {
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    height: 32px;
+    margin-top: 10px;
+    outline: medium none;
+}
+
+.controls_detail {
+    border: 1px solid transparent;
+    border-radius: 2px 0 0 2px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    height: 32px;
+    margin-top: 2px;
+    outline: medium none;
+}
+
+.scSelCategory{
+    width: 179px;
+    float: right;
+
+}
+
+
+
+.productTab{
+    width: 100%;
+}
+.scProductImage{
+    /*position:relative;*/
+    width:60px;
+    /*overflow:hidden;*/
+    background:transparent;
+    border:1px solid #AAA;
+    margin: 0 auto;
+    display: block;
+}
+
+.content_item{
+    margin: 1px;
+}
+
+
+.prductName{
+    /*height: 17px;
+    max-height: 17px;*/
+    /*padding-left: 5px;*/
+    font-weight: 700;
+    text-align: center;
+    /*max-height: 38px;*/
+    /*overflow: hidden;*/
+    /*text-overflow: ellipsis;*/
+}
+
+/*.scPDiv2{
+    max-width: 50px;
+}*/
+
+.scProducts {
+    display:block;
+    width:33%;
+    height: 95px;
+    border: 1px dotted #F5F5F5;
+    border-bottom: 1px dotted #CCC;
+    float:left;
+    padding-top: 8px;
+}
+
+.scProductImageSmall, .scProductImage{
+    margin-top: 4px;
+}
+
+/*a strong{
+    line-height: 36px;
+    margin-left: 5px;
+}*/
+
+/*a span{
+    margin-left: 5px;
+}*/
+/*End product list*/
+
+
+
+
+/* Cart Styles */
+.scCartHeader {
+    display:block;
+    position: relative;
+
+    padding: 5px 10px;
+    margin: 0;
+    height:33px;
+
+    border: 1px solid #CCC;
+    background: #F5F5F5;
+}
+.scCartTitle {
+    display:block;
+    position: relative;
+    padding: 0px;
+    padding-top: 4px;
+    padding-left: 5px;
+    margin: 0;
+    height:18px;
+    border: 0;
+    color: #5A5655;
+    /*border-right: 1px solid #CCC;*/
+    float:left;
+}
+.scCartHeader .scCartTitle1 {
+    width:100px;
+}
+.scCartHeader .scCartTitle2 {
+    width:70px;
+}
+.scCartHeader .scCartTitle3 {
+    width:70px;
+}
+.scCartHeader .scCartTitle4 {
+    width: 70px;
+}
+.scCartHeader .scCartTitle6 {
+    width: 200px;
+}
+.scCartHeader .scCartTitle5 {
+    width:50px;
+    border-right: 0;
+}
+.scCartHeader .scCartTitle8 {
+    width:270px;
+    border-right: 0;
+}
+
+.scMessageBar {
+    position:relative;
+    margin: 17px auto;
+    padding:10px;
+    color: #5A5655;
+    background:   #FFFFDD;
+    border: 1px solid #FFD700;
+    width:90%;
+    height:41px;
+    text-align:center;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+
+.productContain{
+    padding-left: 0;
+}
+.scCartTitle1{
+    padding-left: 10px;
+}
+
+.scTxtQuantity2{
+    width: 30px;
+}
+
+.textNote {
+    color: #838181;
+    font-size: 11px;
+}
+
+.scCartTitle4{
+    /*float: right;*/
+}
+
+.scCartItemTitle5{
+    margin-top: 3px;
+}
+
+.scCartItem{
+    padding-top: 5px;
+}
+
+.priceDown{
+    font-size: 79%;
+    color: #838181;
+    margin-right: 2px;
+}
+
+.discountTxt{
+    width: 50%;
+}
+
+.inputDiscount{
+    padding: 0 3px;
+}
+
+.scBottomBar{
+    /*padding-left: 13px;*/
+    margin-top: 10px;
+}
+
+.productList{
+    border-bottom: 1px dotted #838181;
+}
+
+.scLabelSubtotalValue{
+    font-size: 15px;
+    text-align: right;
+    color: red;
+}
+.scTotalValue{
+    color: red;
+    /*margin-left: 257px;*/
+    font-size: 16px;
+    text-align: right;
+}
+
+.scLabelSubtotalText{
+    margin-bottom: 10px;
+}
+
+
+
+.scCheckoutDiv{
+    margin: 10px auto;
+}
+
+.toolBar{
+    margin-bottom: 5px;
+    border-bottom: 1px dotted #838181;
+}
+
+.scSearchPanel{
+    border-bottom: 1px dotted #838181;
+    padding-bottom: 17px;
+}
+
+.scProductList{
+    height: 486px;
+    overflow: auto;
+}
+
+.cartBody{
+    height: 550px;
+    overflow: auto;
+}
+.scCartList{
+    height: 199px;
+    overflow: auto;
+    border-bottom: 1px dotted #838181;
+}
+.btn-red{
+    color: red;
+}
+
+.right_Text{
+    margin-left: 2%;
+}
+.addressText{
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 100%;
+}
+
+.scLabelShipValue{
+    text-align: right;
+}
+
+.combo-group-header{
+    font-weight: 700;
+}
+
+label{
+    font-weight: 500;
+}
