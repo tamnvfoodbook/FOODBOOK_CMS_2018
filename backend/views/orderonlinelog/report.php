@@ -193,6 +193,15 @@ $gridColumns = [
         'pageSummary'=>true,
         'pageSummaryFunc'=>GridView::F_SUM
     ],
+    [
+        'attribute' => 'ship_price_real',
+        'value' => 'ship',
+        'width' => '80px',
+        'label' => 'Phí ship',
+        'format'=>['decimal', 0],
+        'pageSummary'=>true,
+        'pageSummaryFunc'=>GridView::F_SUM
+    ],
 
     [
         'attribute' => 'order_data_item',

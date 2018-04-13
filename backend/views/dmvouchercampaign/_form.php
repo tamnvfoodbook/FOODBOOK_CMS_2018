@@ -40,9 +40,9 @@ $this->registerJsFile('plugins/jQuery/jQuery-2.1.4.min.js', ['position' => \yii\
                 ],
             ]); ?>
             <?= $form->field($model, 'APPLY_ITEM_TYPE')->textInput()->label('Mã nhóm món cần mua') ?>
-            <?= $form->field($model, 'ITEM_TYPE_ID_LIST')->textInput()->label('Mã nhóm món được tặng') ?>
+            <?= $form->field($model, 'ITEM_TYPE_ID_LIST')->textInput()->label('Mã nhóm món được tặng / Mã nhóm món áp dụng') ?>
             <?= $form->field($model, 'APPLY_ITEM_ID')->textInput()->label('Mã món cần mua') ?>
-            <?= $form->field($model, 'ITEM_ID_LIST')->textInput()->label('Mã món được tặng') ?>
+            <?= $form->field($model, 'ITEM_ID_LIST')->textInput()->label('Mã món được tặng / Mã món áp dụng') ?>
 
 
             <div class="form-group">

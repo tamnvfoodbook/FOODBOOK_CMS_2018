@@ -275,7 +275,7 @@ class Orderonlinelog extends \yii\mongodb\ActiveRecord
     }
 
     public function getMemberinfo(){
-        return $this->user_id.'<br><b>'.$this->username.'</b><br/>'.$this->to_address;
+        return $this->user_id.'<br><b>'.$this->username.'</b><br/>'.$this->to_address.'<br/>'.$this->note;
     }
 
     /**
@@ -877,7 +877,7 @@ class Orderonlinelog extends \yii\mongodb\ActiveRecord
 
             if(@$this->voucher['discount_type']){
 
-                if($this->voucher['same_price']){
+                if(@$this->voucher['same_price']){
                     $same_price = $this->voucher['same_price'];
                     foreach($this->order_data_item as $item){
                         $discountVoucher = $item['Price']*$item['Quantity'] - $same_price + $discountVoucher;
@@ -918,6 +918,15 @@ class Orderonlinelog extends \yii\mongodb\ActiveRecord
             $disComplete = $this->distance + $disComplete;
         }
         return $disComplete;
+    }
+    public function getShip(){
+        $ship = 0;
+        if(@$this->ship_price_real > 0 ){
+            $ship = $this->ship_price_real;
+        }else{
+           $ship = 0;
+        }
+        return $ship;
     }
 
     public function getBill(){

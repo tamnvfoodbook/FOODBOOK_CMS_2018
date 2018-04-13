@@ -12,17 +12,35 @@ $this->params['breadcrumbs'][] = 'Update';
 ?>
 <div class="dmpos-update">
     <h1><?= Html::encode($this->title) ?></h1>
-    <?= $this->render('_form_parent_item', [
-        'model' => $model,
-        'modelItem' => $modelItem,
-        'itemEatWith' => $itemEatWith,
-        'timesaleBinArray' => $timesaleBinArray,
-        'houraleBinArray' => $houraleBinArray,
-        'itemTypeMasterMap' => $itemTypeMasterMap,
-        'itemTypeMap' => $itemTypeMap,
-        'itemMap' => $itemMap,
-        'allPos' => $allPos,
-        'POS_ID' => $POS_ID,
-    ]) ?>
+    <?php
+        if($model->IS_PARENT){
+            echo $this->render('_form_parent_item', [
+                'model' => $model,
+                'modelItem' => $modelItem,
+                'itemEatWith' => $itemEatWith,
+                'timesaleBinArray' => $timesaleBinArray,
+                'houraleBinArray' => $houraleBinArray,
+                'itemTypeMasterMap' => $itemTypeMasterMap,
+                'itemTypeMap' => $itemTypeMap,
+                'itemMap' => $itemMap,
+                'allPos' => $allPos,
+                'POS_ID' => $POS_ID,
+            ]);
+        }else{
+            echo $this->render('_form', [
+                'model' => $model,
+                'modelItem' => $modelItem,
+                'itemEatWith' => $itemEatWith,
+                'timesaleBinArray' => $timesaleBinArray,
+                'houraleBinArray' => $houraleBinArray,
+                'itemTypeMasterMap' => $itemTypeMasterMap,
+                'itemTypeMap' => $itemTypeMap,
+                'itemMap' => $itemMap,
+                'allPos' => $allPos,
+                'POS_ID' => $POS_ID,
+            ]);
+        }
+
+     ?>
 
 </div>

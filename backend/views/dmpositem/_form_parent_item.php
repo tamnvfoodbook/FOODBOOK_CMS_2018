@@ -40,12 +40,13 @@ $this->params['breadcrumbs'][] = $this->title;
         <div class="panel-heading">
             <h3 class="panel-title"><i class="glyphicon glyphicon-cutlery"></i> <?= $this->title ?></h3>
         </div>
-
-        <div class="clearfix"></div>
-
         <div class="rc-handle-container">
             <div class="box-body">
                 <?php $form = ActiveForm::begin(['options' => ['enctype' => 'multipart/form-data']]);?>
+
+                <div class="form-group col-md-12">
+                    <?= Html::submitButton($model->isNewRecord ? 'Tạo mới' : 'Cập nhật', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
+                </div>
 
                 <div class="col-md-6">
                     <?php
@@ -113,33 +114,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         ])
                     ?>
 
-                    <?php
-                    echo '<label class="control-label">Món ăn kèm</label>';
-                    echo Select2::widget([
-                        'name' => 'Dmitem[ITEM_ID_EAT_WITH]',
-                        'theme' => Select2::THEME_DEFAULT,
-                        'id' => 'dmitem-item_id_eat_with',
-                        'maintainOrder' => true,
-                        //'value' => ['red', 'green'], // initial value
-                        'value' => explode(",",$model->ITEM_ID_EAT_WITH),
-                        'data' => $itemEatWith,
-                        'options' => [
-                            'placeholder' => 'Chọn món ăn kèm ...',
-                            'maintainOrder' => true,
-                            'multiple' => true
 
-                        ],
-                        'pluginOptions' => [
-                            'tags' => true,
-                            'maximumInputLength' => 10
-                        ],
-                    ]);
-                    ?>
 
                 </div>
                 <div class="col-md-6">
-                    <?= $form->field($model, 'IS_PARENT')->dropDownList([0 => 'Món thường',1 => 'Món cha']) ?>
-
                     <?= $form->field($model, 'LIST_SUB_ITEM')->widget(Select2::classname(), [
                         'data' => $itemMap,
                         'options' => ['placeholder' => 'Chọn ...'],
@@ -200,9 +178,32 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
                     <?php
-                    if($model->ITEM_IMAGE_PATH_THUMB){
-                        echo Html::hiddenInput('ITEM_IMAGE_PATH_THUMB-old',$model->ITEM_IMAGE_PATH_THUMB);
-                    }
+                        if($model->ITEM_IMAGE_PATH_THUMB){
+                            echo Html::hiddenInput('ITEM_IMAGE_PATH_THUMB-old',$model->ITEM_IMAGE_PATH_THUMB);
+                        }
+                    ?>
+
+                    <?php
+                        echo '<label class="control-label">Món ăn kèm</label>';
+                        echo Select2::widget([
+                            'name' => 'Dmitem[ITEM_ID_EAT_WITH]',
+                            'theme' => Select2::THEME_DEFAULT,
+                            'id' => 'dmitem-item_id_eat_with',
+                            'maintainOrder' => true,
+                            //'value' => ['red', 'green'], // initial value
+                            'value' => explode(",",$model->ITEM_ID_EAT_WITH),
+                            'data' => $itemEatWith,
+                            'options' => [
+                                'placeholder' => 'Chọn món ăn kèm ...',
+                                'maintainOrder' => true,
+                                'multiple' => true
+
+                            ],
+                            'pluginOptions' => [
+                                'tags' => true,
+                                'maximumInputLength' => 10
+                            ],
+                        ]);
                     ?>
 
 
@@ -226,9 +227,7 @@ $this->params['breadcrumbs'][] = $this->title;
                     <br/>
                     <br/>
 
-                    <div class="pull-right">
-                        <?= Html::submitButton($model->isNewRecord ? 'Tạo mới' : 'Sửa', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) ?>
-                    </div>
+
                 </div>
                 <div class="clearfix"></div>
 
@@ -240,10 +239,6 @@ $this->params['breadcrumbs'][] = $this->title;
     <script>
         // Script Popup Rating
         $(function(){
-            var isParent = '<?php $model->LIST_SUB_ITEM ?>';
-            if(isParent == 0){
-                $('.field-dmitem-list_sub_item').hide();
-            }
 
             $("#syncCheck").click(function (e) {
                 if ($(this).is(':checked')) {
@@ -256,13 +251,5 @@ $this->params['breadcrumbs'][] = $this->title;
                 $("#dmitem-ta_price").val($(this).val());
             });
 
-            $('#dmitem-is_parent').change('input', function() {
-                var parent = $(this).val();
-                if(parent == 1){
-                    $('.field-dmitem-list_sub_item').show();
-                }else{
-                    $('.field-dmitem-list_sub_item').hide();
-                }
-            });
         });
     </script>

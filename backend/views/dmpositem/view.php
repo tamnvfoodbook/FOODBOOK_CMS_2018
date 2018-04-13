@@ -154,7 +154,7 @@ $gridColumns = [
     'toolbar' => [
         //'{export}',
         ['content'=>
-            Html::a('Tạo món', ['createparentitem','POS_ID' => $model->ID], ['class' => 'btn btn-success'])
+            Html::a('Tạo món cha', ['createparentitem','POS_ID' => $model->ID], ['class' => 'btn btn-success'])
         ],
         '{toggleData}',
         '{export}',

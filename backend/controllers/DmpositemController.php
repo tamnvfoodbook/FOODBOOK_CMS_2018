@@ -450,9 +450,10 @@ class DmpositemController extends Controller
             }
             $model->POS_ID = $POS_ID;
 
-            if($model->IS_PARENT){
-                $model->ITEM_ID_BARCODE = $model->ITEM_ID;
-            }
+            $model->IS_PARENT = 1;
+
+            $model->ITEM_ID_BARCODE = $model->ITEM_ID;
+
 
             if(is_array($model->ITEM_ID_EAT_WITH)){
                 $model->ITEM_ID_EAT_WITH = implode(",",$model->ITEM_ID_EAT_WITH);
@@ -1208,6 +1209,35 @@ class DmpositemController extends Controller
                 'POS_ID' => $POS_ID,
             ]);
         }
+    }
+
+    public function actionSyncitem($posId){
+        $apiName = 'ipcc/sync_item';
+        $apiPath = Yii::$app->params['CMS_API_PATH_IPOS'];
+
+        $access_token = Yii::$app->params['ACCESS_TOKEN'];
+        $user_token = \Yii::$app->session->get('user_token');
+        $pos_parent = \Yii::$app->session->get('pos_parent');
+
+        $data = [
+            'access_token' => $access_token,
+            'session_token' => $user_token,
+            'pos_parent' => $pos_parent,
+            'pos_id' => $posId
+        ];
+
+        $result = ApiController::getApiByMethod($apiName,$apiPath,$data);
+
+        if(isset($result->data)){
+            Yii::$app->getSession()->setFlash('success', 'Đồng bộ thành công!');
+        }else if(@$result->error) {
+            Yii::$app->getSession()->setFlash('error', @$result->error->message);
+        }else{
+            Yii::$app->getSession()->setFlash('error', "Lỗi kết nối");
+        }
+
+        return $this->redirect('index.php?r=dmpositem',302);
+
     }
     public function actionPosUpdate($ID, $POS_ID)
     {
