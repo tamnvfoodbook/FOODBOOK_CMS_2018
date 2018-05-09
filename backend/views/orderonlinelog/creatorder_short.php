@@ -1980,41 +1980,44 @@ $(document).ready(function(){
                     $.each(itemArray, function( keyItem, itemId ){
                         try{
                             var itemComboDetail = dataItem[itemId].split('_*_');
-                        }catch(e){
+                            var inputQty = $('<select></select>').attr("id","comboQty"+tmpGroup+itemId ).attr("name","comboQty").attr("groupid",tmpGroup).attr("ots_price",ots_price).attr("groupmax",value.quantity).attr("comboid",itemComboDetail[0]).addClass("form-control");
 
-                        }
-
-
-                        var inputQty = $('<select></select>').attr("id","comboQty"+tmpGroup+itemId ).attr("name","comboQty").attr("groupid",tmpGroup).attr("ots_price",ots_price).attr("groupmax",value.quantity).attr("comboid",itemComboDetail[0]).addClass("form-control");
-
-                        if(tmpGroupId[tmpGroup] === undefined){
-                            tmpGroupId[tmpGroup] = [];
-                            tmpGroupId[tmpGroup].push(itemId);
-                        }else{
-                            tmpGroupId[tmpGroup].push(itemId);
-                        }
-
-                        for (i=0;i<= value.quantity ;i++){
-                            if(i == 0){
-                                inputQty.append($('<option selected></option>').val(i).html(i));
+                            if(tmpGroupId[tmpGroup] === undefined){
+                                tmpGroupId[tmpGroup] = [];
+                                tmpGroupId[tmpGroup].push(itemId);
                             }else{
-                                inputQty.append($('<option></option>').val(i).html(i));
+                                tmpGroupId[tmpGroup].push(itemId);
                             }
+
+                            for (i=0;i<= value.quantity ;i++){
+                                if(i == 0){
+                                    inputQty.append($('<option selected></option>').val(i).html(i));
+                                }else{
+                                    inputQty.append($('<option></option>').val(i).html(i));
+                                }
+                            }
+
+                            if(comboItemId){
+                                var eatWithelm = $('<div class="funkyradio-primary">' +
+                                '<label for="'+tmpGroup+itemId+'">'+ itemComboDetail[3] +'</label> ' +
+                                '</div>');
+                            }else{
+                                eatWithelm = $('<div class="funkyradio-primary">' +
+                                '<label for="'+itemId+'">'+ itemComboDetail[3] +'</label> ' +
+                                '</div>');
+
+                            }
+
+                            inputQty.appendTo(eatWithelm);
+                            eatWithelm.appendTo(comboGroup);
+                        }catch(e){
+                            console.log('keyItem',keyItem);
+                            console.log('itemId',itemId);
                         }
 
-                        if(comboItemId){
-                            var eatWithelm = $('<div class="funkyradio-primary">' +
-                            '<label for="'+tmpGroup+itemId+'">'+ itemComboDetail[3] +'</label> ' +
-                            '</div>');
-                        }else{
-                            eatWithelm = $('<div class="funkyradio-primary">' +
-                            '<label for="'+itemId+'">'+ itemComboDetail[3] +'</label> ' +
-                            '</div>');
 
-                        }
 
-                        inputQty.appendTo(eatWithelm);
-                        eatWithelm.appendTo(comboGroup);
+
 
 
                     });
