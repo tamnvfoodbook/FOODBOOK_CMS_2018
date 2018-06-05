@@ -67,6 +67,14 @@ class DmpartnerSearch extends Dmpartner
         return $dataProvider;
     }
 
+    public function searchAllPartner(){
+        $pos = Dmpartner::find()
+            ->where(['ACTIVE'=> 1])
+            ->asArray()
+            ->all();
+        return $pos;
+    }
+
 
 
 

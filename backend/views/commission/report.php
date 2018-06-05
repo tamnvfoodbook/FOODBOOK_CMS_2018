@@ -23,20 +23,26 @@ $gridColumns = [
     ],
     [
         'attribute' => 'amount_total_item',
-        'format'=>['decimal',0],
+        'value' => function ($data){
+            return number_format($data['amount_total_item']);
+        },
         'label' => 'Tổng tiền',
         'pageSummary' => true,
     ],
     [
         'attribute' => 'amount_driver_pay_mechant',
-        'format'=>['decimal',0],
+        'value' => function ($data){
+            return number_format($data['amount_driver_pay_mechant']);
+        },
         'label' => 'Tài xế đã trả NH',
         'pageSummary' => true,
 
     ],
     [
         'attribute' => 'amount_partner_commission',
-        'format'=>['decimal',0],
+        'value' => function ($data){
+            return number_format($data['amount_partner_commission']);
+        },
         'label' => 'Hoa hồng cho LALA',
         'pageSummary' => true,
     ],
@@ -50,7 +56,9 @@ $gridColumns = [
     ],
     [
         'attribute' => 'amount_partner_pay_merchant',
-        'format'=>['decimal',0],
+        'value' => function ($data){
+            return number_format($data['amount_partner_pay_merchant']);
+        },
         'label' => 'LALA còn trả NH',
         'pageSummary' => true,
     ],

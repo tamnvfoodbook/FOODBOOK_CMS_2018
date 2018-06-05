@@ -347,6 +347,7 @@ class DmposSearch extends Dmpos
         return $pos;
     }
 
+
     public function searchAllPosById($id){
         $pos = Dmpos::find()
             ->select(['ID','POS_NAME','POS_LONGITUDE','POS_LATITUDE','PHONE_NUMBER'])

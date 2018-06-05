@@ -91,6 +91,13 @@ $gridColumns = [
         },
         'label' => 'Món ăn'
     ],
+    [
+        'format' => 'raw',
+        'value' => function ($data){
+            return Html::a('Đồng bộ', ['dmpositem/syncitem','posId' => $data->ID ], ['class' => 'btn btn-success']);
+        },
+        'label' => 'Đồng bộ món ăn'
+    ],
     /*[
         'format' => 'raw',
         'value' => function ($data){

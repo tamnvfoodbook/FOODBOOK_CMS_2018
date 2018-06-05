@@ -146,7 +146,7 @@ $gridColumns = [
             if(@$model->Facebook_Mes_Id){
                 $faceId = "'".@$model->Facebook_Mes_Id."'" ;
                 if(@$model->Facebook_Mes_Id){
-                    $face_logo = '<button type="button" onclick="sendGiftZalo('.$model->Id.','.$faceId.')" style="border: 0; background: transparent" ><img src="/images/icon-logo/fb-logo-30x30.png"></button>';
+                    $face_logo = '<button type="button" onclick="sendGiftZalo('.$model->Id.',0,'.$faceId.')" style="border: 0; background: transparent" ><img src="/images/icon-logo/fb-logo-30x30.png"></button>';
                     $listused = $listused.' '.$face_logo;
                 }
             }
@@ -167,7 +167,7 @@ $gridColumns = [
 //    'allMemberMapPhone' => $allMemberMapPhone,
         'groupMember' => $groupMember,
         'allCityMap' => $allCityMap,
-        'allMemberTypeMap' => $allMemberTypeMap,
+        'allMemberTypeMap' => @$allMemberTypeMap,
     ])?>
 </div>
 
@@ -287,6 +287,7 @@ echo '<form action="">';
 echo '<input type="hidden" name="phone" id="phone">';
 echo '<input type="hidden" name="typegift" id="type">';
 echo '<input type="hidden" name="zaloId" id="zaloId">';
+echo '<input type="hidden" name="facebook_id" id="facebook_id">';
 echo '<label>Nội dung tin nhắn</label>';
 echo '<textarea rows="4" class="form-control" name="smscontent"></textarea>';
 echo '<br>';
@@ -300,11 +301,14 @@ Modal::end();
 
 <script>
 
-    function sendGiftZalo(phone,zaloId = null){
+    function sendGiftZalo(phone,zaloId = null,facebookId= null){
         $('#phone').val(phone);
         $('#zaloId').val(zaloId);
+        $('#facebook_id').val(facebookId);
         if(zaloId){
             $('#type').val(2);
+        }else if(facebookId){
+            $('#type').val(3);
         }else{
             $('#type').val(1);
         }
@@ -361,7 +365,7 @@ Modal::end();
             var dataForm = getFormObj('sendgiftForm');
             $.ajax({type: "POST",
                     url: "<?= Url::toRoute('/dmmembership/sendgiftzalo')?>",
-                    data: { phone: dataForm.phone ,typeGift : dataForm.typegift, smscontent : dataForm.smscontent,zaloId: dataForm.zaloId },
+                    data: { phone: dataForm.phone ,typeGift : dataForm.typegift, smscontent : dataForm.smscontent,zaloId: dataForm.zaloId,facebookId: dataForm.facebook_id },
 
                     beforeSend: function() {
                         //that.$element is a variable that stores the element the plugin was called on

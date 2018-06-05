@@ -500,9 +500,11 @@ if ($type!= 1) {?>
                 <li><a href="<?= \yii\helpers\Url::to(['/dmpartner']) ?>"><span class="fa fa-circle-o"></span>Đối tác</a></li>
                 <li><a href="<?= \yii\helpers\Url::to(['/dmcity']) ?>"><span class="fa fa-circle-o"></span>Thành phố</a></li>
                 <li><a href="<?= \yii\helpers\Url::to(['/dmdistrict']) ?>"><span class="fa fa-circle-o"></span>Quận huyện</a></li>
+                <li><a href="<?= \yii\helpers\Url::to(['/mgpartnercustomfield']) ?>"><span class="fa fa-circle-o"></span>Tags</a></li>
             </ul>
         </li>
     </ul>
+
 
     <ul class="sidebar-menu">
         <li class="treeview">

@@ -168,10 +168,11 @@ class DmmembershipController extends Controller
                     'allMemberTypeMap' => $allMemberTypeMap,
                 ]);
 
-                return $this->redirect(['dmevent/report']);
+//                return $this->redirect(['dmevent/report']);
             }
 
         }else{
+
             return $this->render('report', [
                 'searchModel' => $eventModelSeach,
                 'timeRanger' => $timeRanger,
@@ -526,12 +527,12 @@ class DmmembershipController extends Controller
     public function actionSendgiftzalo()
     {
         $post = Yii::$app->request->post();
-
         $param = [
             'phone_number' => $post['phone'],
             'zalo_id' => $post['zaloId'],
+            'facebook_id' => @$post['facebookId'],
             'message' => $post['smscontent'],
-            'send_type' => $post['typeGift']
+            'send_type' => (int)$post['typeGift']
         ];
 
         $apiName = 'ipcc/send_message_cskh';

@@ -92,9 +92,9 @@ class DmpositemController extends Controller
             'allModels' => $reportByDay->data,
         ]);
 
-/*        if(isset($reportByDay->data)){
-            $dataProvider->allModel = $reportByDay->data;
-        }*/
+        /*        if(isset($reportByDay->data)){
+                    $dataProvider->allModel = $reportByDay->data;
+                }*/
 
 //        $dataProvider = $searchModel->searchLala(Yii::$app->request->queryParams);
 
@@ -378,6 +378,30 @@ class DmpositemController extends Controller
                 'model' => $model,
             ]);
         }
+    }
+    public function actionSyncitem($posId)
+    {
+        $dataCampain = array();
+        $apiName = 'ipcc/sync_item';
+        $apiPath = Yii::$app->params['CMS_API_PATH_IPOS'];
+
+        $access_token = Yii::$app->params['ACCESS_TOKEN'];
+        $user_token = \Yii::$app->session->get('user_token');
+
+        $paramCommnet = [
+            'access_token' => $access_token,
+            'session_token' => $user_token,
+            'pos_parent' => Yii::$app->session->get('pos_parent'),
+            'pos_id' => $posId,
+        ];
+        $data = ApiController::getApiByMethod($apiName,$apiPath,$paramCommnet,'GET');
+        if(isset($data->data)){
+            Yii::$app->session->setFlash('success', 'Đồng bộ thành công');
+        }else{
+            Yii::$app->session->setFlash('error', @$data->error->message);
+        }
+
+        return $this->redirect(['index']);
     }
 
 
@@ -1164,7 +1188,18 @@ class DmpositemController extends Controller
                 $mgItemUpdate = new MgitemchangedSearch();
                 $mgItemUpdate->updatechange($model->POS_ID);
 
+
                 if($model->IS_PARENT){
+                    //Chuyển tất cả các món con về trạng thái bình thường, sau đó mới cập nhật lại nó là món con
+                    $listOldSubItem = DmitemSearch::searchItemByParentItem($model->ITEM_ID);
+                    $subItemMap = ArrayHelper::map($listOldSubItem,'ITEM_ID','ITEM_ID');
+                    $resetSubItem = [
+                        'IS_SUB' => '0',
+                        'ITEM_ID_BARCODE' => NULL
+                    ];
+                    Dmitem::updateAll($resetSubItem, ['ITEM_ID' => $subItemMap ]);
+
+                    //Sau đó mới cập nhật các giá trị mới vào
                     $update = [
                         'IS_SUB' => '1',
                         'ITEM_ID_BARCODE' => $model->ITEM_ID

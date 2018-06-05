@@ -24,7 +24,7 @@ use yii\filters\VerbFilter;
 /**
  * DmvouchercampaignController implements the CRUD actions for Dmvouchercampaign model.
  */
-class DmvouchercampaignController extends Controller
+class   DmvouchercampaignController extends Controller
 {
     public static $TIME_MORNING = 1;
     public static $TIME_LUNCH = 2;
@@ -180,18 +180,27 @@ class DmvouchercampaignController extends Controller
     public function actionSendevoucher()
     {
         $searchMemberModel = new DmmembershipSearch();
+        /*
         $userPhone = $searchMemberModel->seachAllPhoneByPospent();
         $userPhoneData = array();
         foreach($userPhone as $phone){
             array_push($userPhoneData,$phone['ID']);
-        }
+        }*/
 
         $dataCampainMap = array();
         $apiName = 'ipcc/get_campaign_of_pos_parent';
         $apiPath = Yii::$app->params['CMS_API_PATH_IPOS'];
 
+        $apiGetMember = 'ipcc/get_all_member_of_pos_parent';
+        $paramGetMember = array();
+        $member = ApiController::getApiByMethod($apiGetMember,$apiPath,$paramGetMember,'GET');
+        $userPhoneData = ArrayHelper::map($member,'membership_id','membership_id');
+
+
         $paramCommnet = array();
         $data = ApiController::getApiByMethod($apiName,$apiPath,$paramCommnet,'GET');
+
+
         if(isset($data->data)){
             $dataCampain = $data->data;
             foreach((array)$dataCampain as $campain){
